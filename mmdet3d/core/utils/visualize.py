@@ -97,8 +97,8 @@ def visualize_camera(
             ]:
                 cv2.line(
                     canvas,
-                    coords[index, start].astype(np.int),
-                    coords[index, end].astype(np.int),
+                    coords[index, start].astype(np.intp),
+                    coords[index, end].astype(np.intp),
                     color or OBJECT_PALETTE[name],
                     thickness,
                     cv2.LINE_AA,
@@ -169,7 +169,7 @@ def visualize_map(
     classes: List[str],
     background: Tuple[int, int, int] = (240, 240, 240),
 ) -> None:
-    assert masks.dtype == np.bool, masks.dtype
+    assert masks.dtype == np.bool_, masks.dtype
 
     canvas = np.zeros((*masks.shape[-2:], 3), dtype=np.uint8)
     canvas[:] = background
